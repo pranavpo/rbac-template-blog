@@ -7,7 +7,7 @@ class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
         fields = ['id', 'title', 'content', 'status', 'author', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'author', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'author', 'created_at']
 
     def create(self, validated_data):
         """ Set the author to the logged-in user when creating a blog post. """

@@ -38,8 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'roles'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # ✅ Token-based authentication
+        'rest_framework.authentication.SessionAuthentication',  # ✅ For Browsable API login
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # ✅ Requires authentication by default
+    ],
+}
+
 
 AUTH_USER_MODEL = 'roles.User'
 
